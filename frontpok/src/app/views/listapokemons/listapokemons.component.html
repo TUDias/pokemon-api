@@ -1,0 +1,47 @@
+<h2>Listagem</h2>
+
+
+<div class="recent" ng-repeat="reader in
+    (filteredItems = (book.reader | orderBy: 'created_at' | limitTo: 1))">
+</div>
+
+<div class="pk-grid">
+    <div class="box" *ngFor="let pokemon of pokemons |
+     paginate: { itemsPerPage: 12, currentPage: page, totalItems: totalPokemons }">
+        
+        <a class="link" routerLink="/pokemonsInfo/{{ pokemon.id }} ">
+
+            <img class="imgs" [src]="pokemon.sprites.front_default" alt="Pokemon">
+
+            <div class="box2">
+                <div>
+                    <b>Tipo: </b>
+                    {{ pokemon.types[0].type.name }}
+                </div>
+
+                <div>
+                    <b>Nome: </b>
+                    {{ pokemon.name }}
+                </div>
+
+                <div>
+                    <b>Hp: </b>
+                    {{ pokemon.stats[0].base_stat }}
+                </div>
+
+                <div>
+                    <b>Especie: </b>
+                    {{ pokemon.species.url }}
+                </div>
+
+            </div>
+        </a>
+
+    </div>
+
+    
+</div>
+
+<pagination-controls (pageChange)="page = $event; pokemons = []; listaPokemons()"></pagination-controls>
+
+

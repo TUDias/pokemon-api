@@ -1,0 +1,77 @@
+
+    <div class="layoutDividido">
+
+        <div class="divEsquerdo">
+
+            <div class="pk-grid">
+                <div class="box">
+
+                    <img class="imgs" [src]="pokemon.sprites.front_default" alt="Pokemon">
+
+                </div>
+            </div>
+
+            <button class="button" (click)="voltar()">
+                Voltar
+            </button>
+        </div>
+
+        <div class="divDireito">
+
+            <div class="conteudo">
+                <label class="labelConteudo">
+                    Nome:
+                </label>
+                <div class="conteudo">
+                    {{ pokemon.name }}
+                </div>
+            </div>
+
+            <div class="conteudo">
+                <label class="labelConteudo">
+                    Habilidade:
+                </label>
+                <div class="conteudo habiliadade" *ngFor="let a of ability">
+                    {{ a.name }}
+                </div>
+            </div>
+
+            <div class="conteudo">
+                <label class="labelConteudo">
+                    Espécie:
+                </label>
+                <div class="conteudo">
+                    {{ pokemon.species.name }}
+                </div>
+            </div>
+
+            <div class="conteudo">
+                <label class="labelConteudo">
+                    Localização:
+                </label>
+                <div class="conteudo">
+                    {{ pokemon.location_area_encounters }}
+                </div>
+            </div>
+
+            <div class="conteudo">
+                <label class="labelConteudo">
+                    Movimentos:
+                </label>
+                <div class="conteudo movimento" *ngFor="let m of move">
+                    {{ m.name }}
+                </div>
+            </div>
+
+            <div class="conteudo">
+                <label class="labelConteudo">
+                    Tipos:
+                </label>
+                <div class="conteudo tipo" *ngFor="let t of type">
+                    {{ t.name }}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
